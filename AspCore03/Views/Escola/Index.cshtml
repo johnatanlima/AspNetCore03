@@ -1,0 +1,51 @@
+@model IEnumerable<AspCore03.Models.Escola>
+
+@{
+    ViewData["Title"] = "Lista - Escola";
+}
+
+<div class="text-center">
+    <h1> Página Inicial - Escola </h1>
+</div>
+
+<h2> Adicionar Novo Curso </h2>
+
+<a asp-action="NovaEscola" class="btn btn-success"> Adicionar Escola </a>
+
+<div class="container">
+    <table class="table">
+        <!-- Cabecalho Table-->
+        <thead>
+            <th> ID </th>
+            <th> Nome </th>
+            <th> Data de Fundação </th>
+            <th> Custo Obra - R$ </th>
+            <th> Ações </th>
+        </thead>
+        <!-- Corpo Table-->
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr> 
+                    <td>
+                         @Html.DisplayFor(Model => item.EscolaId)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(Model => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.DataFundacao)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(Model => item.CustoObra)
+                    </td>
+                    <td>
+                      <a asp-action="Atualizar" asp-route-id="@item.EscolaId" class="btn btn-warning"> Atualizar </a>
+                      <a asp-action="Detalhes" asp-route-id="@item.EscolaId" class="btn btn-info">  Detalhes </a>
+                      <a asp-action="Excluir" asp-route-id="@item.EscolaId" class="btn btn-danger"> Excluir </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

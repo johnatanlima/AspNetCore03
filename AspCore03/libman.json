@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "materialize@1.0.0",
+      "destination": "wwwroot/lib/materialize"
+    },
+
+    {
+      "library": "datepicker@0.6.5", 
+      "destination": "wwwroot/lib/datepicker",
+      "files": [
+        "datepicker.min.css", 
+        "datepicker.min.js"
+      ]
+    }
+  ]
+}
