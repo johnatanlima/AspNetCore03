@@ -6,25 +6,27 @@
 
 <h2> Página de inserção - Nova Escola </h2>
 
-<form asp-action="NovaEscola" method="post">
-    
-    <div class="form-group">
-        <label asp-for="Nome" class="control-label"> </label>
-        <input asp-for="Nome" class="form-control" type="text"/>       
-    </div>
+<div class="container">
+    <form asp-action="NovaEscola" method="post">
+        
+        <div class="form-group">
+            <label asp-for="Nome" class="control-label"> </label>
+            <input asp-for="Nome" class="form-control" type="text"/>       
+        </div>
 
-    <div class="form-group">
-        <label asp-for="DataFundacao" class="control-label"> </label>
-        <input asp-for="DataFundacao" class="form-control" type="datetime"/>       
-    </div>
+        <div class="form-group">
+            <label asp-for="DataFundacao" class="control-label"> </label>
+            <input asp-for="DataFundacao" class="form-control" type="datetime-local"/>       
+        </div>
 
-    <div class="form-group">
-        <label asp-for="CustoObra" class="control-label"> </label>
-        <input asp-for="CustoObra" class="form-control" type="number"/>       
-    </div>
+        <div class="form-group">
+            <label asp-for="CustoObra" class="control-label"> </label>
+            <input asp-for="CustoObra" class="form-control" />       
+        </div>
 
-    <input type="submit" value="Salvar" class="btn btn-success" />
+        <input type="submit" value="Salvar" class="btn btn-success" />
 
-</form>
+    </form>
+</div>
 
-<a asp-action="Index" class="btn btn-link"> Voltar </a>
+<a asp-action="Index" class="btn btn-primary text-center"> Voltar </a>

@@ -44,7 +44,37 @@ namespace AspCore03.Controllers
             }
 
             return View(escolaParam);
-        } 
+        }
+
+        [HttpGet]
+        public IActionResult Atualizar(int? idParam){
+            if(idParam == null)
+                return NotFound();
+            
+            var escola = _context.Escolas.Find(idParam);
+            
+            return View(escola);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Atualizar(int idParam, Escola escola){
+        
+        if (idParam == null)
+        
+            return NotFound();
+        
+        if(ModelState.IsValid){
+            
+            _context.Update(escola);
+            _context.SaveChanges();
+        
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(escola);
+
+        }
 
         public IActionResult Privacy()
         {
