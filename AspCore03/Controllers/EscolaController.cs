@@ -47,7 +47,7 @@ namespace AspCore03.Controllers
         }
 
         [HttpGet]
-        public IActionResult Atualizar(int? idParam){
+        public IActionResult AtualizarEscola(int? idParam){
             if(idParam == null)
                 return NotFound();
             
@@ -58,7 +58,7 @@ namespace AspCore03.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Atualizar(int idParam, Escola escola){
+        public IActionResult AtualizarEscola(int idParam, Escola escola){
         
         if (idParam == null)
         
