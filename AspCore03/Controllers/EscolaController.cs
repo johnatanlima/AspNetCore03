@@ -47,7 +47,7 @@ namespace AspCore03.Controllers
         }
 
         [HttpGet]
-        public IActionResult AtualizarEscola(int? idParam){
+        public IActionResult Atualizar(int? idParam){
             if(idParam == null)
                 return NotFound();
             
@@ -58,7 +58,7 @@ namespace AspCore03.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AtualizarEscola(int idParam, Escola escola){
+        public IActionResult Atualizar(int idParam, Escola escola){
         
         if (idParam == null)
         
@@ -75,6 +75,45 @@ namespace AspCore03.Controllers
         return View(escola);
 
         }
+
+        public IActionResult Detalhes(int? idParam){
+            if (idParam == null)
+
+                return NotFound();
+
+            var escola = _context.Escolas.FirstOrDefault(x => x.EscolaId == idParam);
+
+            return View(escola);
+
+        }   
+
+        [HttpGet]
+        public IActionResult Excluir(int? idParam){
+            if (idParam == null)
+
+                return NotFound();
+
+            var escola = _context.Escolas.FirstOrDefault(x => x.EscolaId == idParam);
+
+            return View(escola);
+
+        } 
+
+        [HttpPost, ActionName("Excluir")]
+        [ValidateAntiForgeryToken]
+        public IActionResult ConfirmarExclusao(int idParam){
+            if(idParam == null)
+                return NotFound();
+                
+            var escola = _context.Escolas.FirstOrDefault(x => x.EscolaId == idParam);
+           
+            _context.Remove(escola);
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+
+        }  
 
         public IActionResult Privacy()
         {

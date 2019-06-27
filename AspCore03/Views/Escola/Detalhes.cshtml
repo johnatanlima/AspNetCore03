@@ -1,0 +1,23 @@
+@model AspCore03.Models.Escola
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2> Detalhes </h2>
+
+<hr />
+
+<div class="row">
+    <label asp-for="EscolaId" />
+    @Html.DisplayFor(Model => Model.EscolaId) <br />
+
+    <label asp-for="Nome" />
+    @Html.DisplayFor(Model => Model.Nome)     <br /> 
+
+    <label asp-for="DataFundacao" />
+    @Html.DisplayFor(Model => Model.DataFundacao) <br />
+
+    <label asp-for="CustoObra" />
+    @Html.DisplayFor(Model => Model.CustoObra) <br />
+</div>
